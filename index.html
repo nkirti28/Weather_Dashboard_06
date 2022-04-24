@@ -9,15 +9,11 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
     />
-
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css"
     />
-    <link
-      href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
@@ -27,17 +23,19 @@
   </head>
 
   <body>
+    <!-- header -->
     <header
       class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow"
     >
-      <h1 class="navbar-brand mx-auto">Weather-Dashboard</h1>
+      <p class="header-style navbar-brand mx-auto">Weather-Dashboard</p>
     </header>
     <div class="container-fluid">
       <div class="row">
-        <nav
+        <div
           id="sidebarMenu"
           class="col-md-3 col-lg-2 d-md-block px-3 mt-2 bg-light sidebar collapse"
         >
+          <!-- Search city input group-->
           <div class="position-sticky pt-3 input-group">
             <div class="sidebar-heading">Search for a City</div>
 
@@ -48,7 +46,22 @@
               </button>
             </div>
           </div>
-        </nav>
+
+          <!-- List of Cities from history-->
+          <div class="list-group"></div>
+        </div>
+        <!-- end of sidebarMenu-->
+        <!-- main section-->
+        <div class="col-md-9 col-lg-10 bg-light">
+          <div class="row">
+            <div class="card bg-light"></div>
+          </div>
+        </div>
+        <!-- <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+          
+              <h4 class="card-title">In Progress</h4>
+            
+        </div> -->
       </div>
     </div>
     <!-- add script at the bottom of the body -->
