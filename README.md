@@ -3,7 +3,7 @@
 For this challenge, you will build a weather dashboard that will run in the browser and
 feature dynamically updated HTML and CSS.
 This application uses the OpenWeather One Call API to retrieve weather data for cities and localstorage to
-store persistent data 
+store persistent data
 This application was built using Moment.js, OpenWeather One Call API, and Bootstrap
 
 ## USER STORY
@@ -36,15 +36,15 @@ THEN I am again presented with current and future conditions for that city
 
 The following GIF Image demonstrates the web application's default appearance and functionality
 
-![Web Application displays Weather Dashboard with current and future conditions of cities".](.)
+![Web Application displays Weather Dashboard with current and future conditions of city".](./assets/Weather-Dashboard.gif)
 
 ## TECHNOLOGY
 
-HTML, CSS and JQuery - Server Side API (OpenWeather One Call API)
+HTML, CSS and JQuery , Moment.js- Server Side API (OpenWeather One Call API)
 
 ## WEBSITE
 
-URL of Deployed Application - https://nkirti28.github.io/Work_Day_Schedular_Challenge05/
+URL of Deployed Application - https://nkirti28.github.io/Weather_Dashboard_06/
 
 ## CONTRIBUTION
 
