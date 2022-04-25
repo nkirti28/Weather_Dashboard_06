@@ -3,7 +3,8 @@
 For this challenge, you will build a weather dashboard that will run in the browser and
 feature dynamically updated HTML and CSS.
 This application uses the OpenWeather One Call API to retrieve weather data for cities and localstorage to
-store persistent data
+store persistent data 
+This application was built using Moment.js, OpenWeather One Call API, and Bootstrap
 
 ## USER STORY
 

@@ -13,7 +13,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css"
     />
-    <link rel="stylesheet" href="./assets/css/style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
@@ -31,43 +30,72 @@
     </header>
     <div class="container-fluid">
       <div class="row">
-        <div
-          id="sidebarMenu"
-          class="col-md-3 col-lg-2 d-md-block px-3 mt-2 bg-light sidebar collapse"
-        >
-          <!-- Search city input group-->
-          <div class="position-sticky pt-3 input-group">
-            <div class="sidebar-heading">Search for a City</div>
+        <!-- sidebar menu-->
+        <div class="col-md-3 col-lg-2 d-md-block px-3 mt-2 bg-light">
+          <form role="form">
+            <div class="position-sticky pt-3 input-group">
+              <div class="sidebar-heading">Search for a City</div>
 
-            <div class="input-group-append mt-2">
-              <input type="text" class="form-control" placeholder="Search" />
-              <button class="btn" type="button" id="searchCity">
-                <i class="fas fa-search"></i>
+              <div class="input-group-append mt-2">
+                <input
+                  type="text"
+                  id="searchCity"
+                  class="form-control"
+                  placeholder="Search"
+                />
+                <button class="btn" type="button" id="searchButton">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+          <!-- List of Cities from history -->
+          <div class="container-fluid pt-3 mt-2" id="previouslySearched">
+            <h6>Previously Searched Cities</h6>
+
+            <ul class="list-group city-list"></ul>
+
+            <div>
+              <button class="btn btn-dark mt-1 remove" type="button">
+                Clear search
               </button>
             </div>
           </div>
-
-          <!-- List of Cities from history-->
-          <div class="list-group"></div>
         </div>
+
         <!-- end of sidebarMenu-->
         <!-- main section-->
-        <div class="col-md-9 col-lg-10 bg-light">
+        <div class="col-md-9 col-lg-10 ms-sm-auto px-md-4 py-md-4">
+          <!-- current weather-->
           <div class="row">
-            <div class="card bg-light"></div>
+            <div class="card">
+              <div class="card-body">
+                <h2 id="current-city"></h2>
+                <div id="current-weather"></div>
+              </div>
+            </div>
+          </div>
+          <!--5-Day Weather forecast-->
+          <div
+            class="container-fluid"
+            id="fivedayforecast"
+          >
+            <h2 id="five-day-title">5- Day Forecast</h2>
+            <div class="card-list" id="cardList">
+              <div class="day-card" id="showFiveDayForecast"></div>
+            </div>
           </div>
         </div>
-        <!-- <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-          
-              <h4 class="card-title">In Progress</h4>
-            
-        </div> -->
       </div>
     </div>
+    <footer class="mt-5 p-3 text-center bg-light">
+      Weather Dashboard &copy 2022
+    </footer>
     <!-- add script at the bottom of the body -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- add the js file here -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="./assets/js/script.js"></script>
