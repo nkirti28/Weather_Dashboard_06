@@ -49,8 +49,8 @@ body {
   padding-bottom: 0.75rem;
   font-size: 32px;
 }
-.prev-city {
-  display: block;
+ul li {
+  list-style: none;
 }
 
 .card {
@@ -97,4 +97,8 @@ body {
 .form-control-dark:focus {
   border-color: transparent;
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
+}
+
+li {
+  text-decoration: none;
 }

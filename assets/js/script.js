@@ -2,25 +2,23 @@ $(document).ready(function () {
   var APIKey = "a518a026feaedaffc332be5dc7ca9090";
 
   var localCities = JSON.parse(localStorage.getItem("cities")) || [];
-  var cities = [];
+  displayAllCities();
 
   // display previously searched cities from localstorage
   function displayAllCities() {
     for (i = 0; i < localCities.length; i++) {
-      $(".city-list").html(
-        `<button type='button' class='btn btn-light prev-city'>${localCities[i]}</button>`
+      // console.log(localCities[i]);
+      $(".city-list").append(
+        `<li><a href="#" id="prevCity" role="button" aria-pressed="true">${localCities[i]}</a></li>`
       );
     }
   }
-
-  
-  displayAllCities();
 
   // clear cities on clear search click
 
   $(".remove").on("click", function () {
     localStorage.clear();
-    $(".prev-city").remove();
+    $(".city-list").remove();
   });
 
   function displayWeather(event) {
@@ -28,9 +26,19 @@ $(document).ready(function () {
     var searchCity = $("#searchCity");
     if (searchCity.val().trim() !== "") {
       city = searchCity.val().trim();
-      console.log(city);
       getCurrentWeatherData(city);
+      storeCity();
     }
+  }
+  function displayWeatherPrevCity(event) {
+    event.preventDefault();
+    var searchCity = $("#prevCity");
+    console.log(searchCity);
+    // if (searchCity.val().trim() !== "") {
+    city = searchCity.val().trim();
+    //console.log(city);
+    getCurrentWeatherData(city);
+    // }
   }
   function getCurrentWeatherData(city) {
     var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${APIKey}`;
@@ -43,7 +51,6 @@ $(document).ready(function () {
       method: "GET",
       datatype: "jsonp",
     }).then(function (response) {
-      //console.log(response);
       let widget = show(response);
       const lon = response.coord.lon;
       const lat = response.coord.lat;
@@ -52,14 +59,11 @@ $(document).ready(function () {
       $("#current-weather").html(widget);
       $("#search").val("");
     });
-    localStorage.setItem("cities", JSON.stringify(localCities));
-    $(".city-list").append(
-      "<button class='btn btn-light prev-city'>" + cities + "</button>"
-    );
+
     getFiveDayForecast(city);
   }
-  // UV index function and values classified by color warning
 
+  // UV index function and values classified by color warning
   function uvIndexFunction(lat, lon) {
     var queryURLData =
       "https://api.openweathermap.org/data/2.5/uvi?appid=" +
@@ -155,7 +159,6 @@ $(document).ready(function () {
       datatype: "jsonp",
     }).then(function (response) {
       $("#showFiveDayForecast").html("");
-      console.log("forecast" + response.list);
 
       for (i = 0; i < response.list.length; i++) {
         if (response.list[i].dt_txt.indexOf("15:00:00") > 0) {
@@ -183,6 +186,13 @@ $(document).ready(function () {
           data.wind.speed
         )} MPH</h6><h6><strong>Humidity</strong>: ${data.main.humidity}%</h6></div>`;
   }
+  // store searched cities in local storage
+  function storeCity() {
+    localStorage.setItem("cities", JSON.stringify(localCities));
+    let str = `<li><a href="#"  id="prevCity" role="button" aria-pressed="true">${cities}</a></li>`;
+    $(".city-list").append(str);
+  }
   // event handlers
   $("#searchButton").on("click", displayWeather);
+  //$("#prevCity").on("click", displayWeatherPrevCity);
 });
